@@ -1,0 +1,6 @@
+{
+  "job_id": "2ae61750-4086-4a94-b962-05293df54b3b",
+  "backend": "aer_simulator",
+  "submitted_at": "2026-11-06T09:51:20-03:00",
+  "shots": 4096
+}

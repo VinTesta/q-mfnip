@@ -1,0 +1,16 @@
+instance_id,n,m,B,feasible,hypercube,sqrt_hypercube,non_degenerate,feasible_below_sqrt
+random-n5-m12-b0.50-s0,5,12,6,67,4096,64.0,True,False
+random-n5-m12-b0.50-s1,5,12,5,28,4096,64.0,True,True
+random-n5-m12-b0.50-s2,5,12,4,138,4096,64.0,True,False
+random-n6-m15-b0.50-s0,6,15,5,97,32768,181.01933598375618,True,True
+random-n6-m15-b0.50-s1,6,15,5,77,32768,181.01933598375618,True,True
+random-n6-m15-b0.50-s2,6,15,5,35,32768,181.01933598375618,True,True
+random-n7-m17-b0.50-s0,7,17,6,139,131072,362.03867196751236,True,True
+random-n7-m17-b0.50-s1,7,17,6,118,131072,362.03867196751236,True,True
+random-n7-m17-b0.50-s2,7,17,3,15,131072,362.03867196751236,True,True
+random-n8-m20-b0.50-s0,8,20,5,222,1048576,1024.0,True,True
+random-n8-m20-b0.50-s1,8,20,4,69,1048576,1024.0,True,True
+random-n8-m20-b0.50-s2,8,20,2,11,1048576,1024.0,True,True
+random-n10-m25-b0.50-s0,10,25,4,172,33554432,5792.618751480198,True,True
+random-n10-m25-b0.50-s1,10,25,6,374,33554432,5792.618751480198,True,True
+random-n10-m25-b0.50-s2,10,25,2,49,33554432,5792.618751480198,True,True

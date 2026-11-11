@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Classical context: median wall-clock time of the MILP (HiGHS) and of the exhaustive enumeration of $\mathcal{F}_k$ (one maximum-flow computation per plan, single thread) on the instances of Table~\ref{tab:instances}.}\label{tab:classical}
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+$n$ & $m$ & $k$ & $N$ & MILP (ms) & Enumeration (s) \\
+\midrule
+6 & 8 & 1 & 9 & 13.7 & 0.004 \\
+11 & 24 & 1 & 25 & 10.3 & 0.009 \\
+18 & 44 & 1 & 45 & 8.5 & 0.016 \\
+27 & 70 & 1 & 71 & 11.2 & 0.024 \\
+11 & 24 & 2 & 301 & 9.2 & 0.099 \\
+18 & 44 & 2 & 991 & 8.8 & 0.373 \\
+27 & 70 & 2 & 2{,}486 & 16.1 & 1.650 \\
+18 & 44 & 3 & 14{,}235 & 7.8 & 4.777 \\
+27 & 70 & 3 & 57{,}226 & 21.7 & 44.8 \\
+27 & 70 & 4 & 974{,}121 & 10.5 & 330.9 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\parbox{0.95\linewidth}{\footnotesize Largest network size $n^{*}$ such that, at every tested size up to $n^{*}$, the MILP proved optimality on all three seeds within 20\,s (random and layered families, general costs, budget $B$ as a fraction of the cost of the cheapest cut that disconnects $s$ from $t$): layered, $B$ = 25\%: 2{,}306 nodes; layered, $B$ = 50\%: 4{,}098 nodes (largest tested); layered, $B$ = 75\%: 4{,}098 nodes (largest tested); random, $B$ = 25\%: 320 nodes; random, $B$ = 50\%: 2{,}560 nodes; random, $B$ = 75\%: 2{,}560 nodes.}
+\end{table}

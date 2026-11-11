@@ -1,0 +1,102 @@
+{
+  "experiment_id": "2026-11-02_19-07-32__milp-random_baseline__layered__n11-66__runs3",
+  "naming": {
+    "family": "layered",
+    "size_label": "n11-66",
+    "repetitions": 3
+  },
+  "status": "completed",
+  "started_at": "2026-11-02T19:07:32-03:00",
+  "config": {
+    "scenario": {
+      "family": "layered",
+      "sizes": [
+        3,
+        4,
+        6,
+        8
+      ],
+      "budget_fractions": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "params": {}
+    },
+    "solvers": [
+      {
+        "name": "Mixed-integer linear programming (HiGHS via SciPy)",
+        "short_name": "milp",
+        "label": "milp",
+        "class": "qmfnip.solvers.exact.MILPSolver",
+        "params": {},
+        "requires_hardware": false
+      },
+      {
+        "name": "Random interdiction within budget",
+        "short_name": "random_baseline",
+        "label": "random_baseline",
+        "class": "__main__.RandomInterdictionSolver",
+        "params": {},
+        "requires_hardware": false
+      }
+    ],
+    "repetitions": 3,
+    "time_limit_s": 10.0,
+    "base_seed": 0,
+    "reference": {
+      "name": "Mixed-integer linear programming (HiGHS via SciPy)",
+      "short_name": "milp",
+      "label": "milp",
+      "class": "qmfnip.solvers.exact.MILPSolver",
+      "params": {},
+      "requires_hardware": false
+    },
+    "reference_time_limit_s": 120.0,
+    "allow_hardware": false
+  },
+  "instances": {
+    "layered-n11-m24-b0.25-s0": "ba3007641e3d1315",
+    "layered-n11-m24-b0.25-s1": "40b152f0002caaec",
+    "layered-n11-m24-b0.25-s2": "b8d343b0ea08edbd",
+    "layered-n11-m24-b0.50-s0": "553c195b4c68dd13",
+    "layered-n11-m24-b0.50-s1": "56c81a35edb02df0",
+    "layered-n11-m24-b0.50-s2": "7bdb20d8d049aff7",
+    "layered-n11-m24-b0.75-s0": "965b44145e6f93d3",
+    "layered-n11-m24-b0.75-s1": "cce710ca0d2c54fa",
+    "layered-n11-m24-b0.75-s2": "4f1624f63516cbed",
+    "layered-n18-m44-b0.25-s0": "94fe3361cb10be79",
+    "layered-n18-m44-b0.25-s1": "00fff62239f47012",
+    "layered-n18-m44-b0.25-s2": "080570f0e3d6ada9",
+    "layered-n18-m44-b0.50-s0": "17a52bbfae12ac07",
+    "layered-n18-m44-b0.50-s1": "95429b21ab4fb7aa",
+    "layered-n18-m44-b0.50-s2": "b94234ec6abf3e91",
+    "layered-n18-m44-b0.75-s0": "18785b619574142c",
+    "layered-n18-m44-b0.75-s1": "94d556ce14c27903",
+    "layered-n18-m44-b0.75-s2": "af5fedfdc862a490",
+    "layered-n38-m102-b0.25-s0": "c8d7eba5c5229d50",
+    "layered-n38-m102-b0.25-s1": "672d6df33f01e65c",
+    "layered-n38-m102-b0.25-s2": "f647e3d89f2be376",
+    "layered-n38-m102-b0.50-s0": "bf7b7dd33010b3e2",
+    "layered-n38-m102-b0.50-s1": "7726bfef2b2cfef1",
+    "layered-n38-m102-b0.50-s2": "368a30b45cfea70f",
+    "layered-n38-m102-b0.75-s0": "f6e0ceb880b70049",
+    "layered-n38-m102-b0.75-s1": "0f74c26c73b112f2",
+    "layered-n38-m102-b0.75-s2": "4753f19b3577770f",
+    "layered-n66-m184-b0.25-s0": "365e21a277c5d015",
+    "layered-n66-m184-b0.25-s1": "56e10218acaa1e0e",
+    "layered-n66-m184-b0.25-s2": "f980515d9814f473",
+    "layered-n66-m184-b0.50-s0": "2286b95081a59335",
+    "layered-n66-m184-b0.50-s1": "56ed46be1e3168d1",
+    "layered-n66-m184-b0.50-s2": "4ea75176344a885a",
+    "layered-n66-m184-b0.75-s0": "043dbb21f5739cb9",
+    "layered-n66-m184-b0.75-s1": "a5b397c195f01c44",
+    "layered-n66-m184-b0.75-s2": "710728df1250c3ea"
+  },
+  "finished_at": "2026-11-02T19:07:36-03:00"
+}

@@ -1,0 +1,30 @@
+{
+  "experiment_id": "2026-11-06_09-51-19__grover_ideal-grover_fake_fez-grover_ibm__random__n3-3__runs4096",
+  "naming": {
+    "family": "random",
+    "size_label": "n3-3",
+    "repetitions": 4096
+  },
+  "status": "completed",
+  "instance": {
+    "random-n3-m3-B1-s0": "d3bc9ddd9abd8831"
+  },
+  "config": {
+    "m": 3,
+    "k": 1,
+    "shots": 4096,
+    "iterations": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "seed": 2026,
+    "alpha": 0.05,
+    "optimum": "010",
+    "variants": {
+      "interface": 1,
+      "hypercube": null
+    }
+  }
+}

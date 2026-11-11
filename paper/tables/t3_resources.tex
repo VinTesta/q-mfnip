@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Resources of the interface pieces: two-qubit gates, logical (basis \texttt{cx}, \texttt{u}) / transpiled for the IBM Heron model \texttt{FakeFez} (optimisation level 1). The truth-table oracle marks the $M$ optimal plans. The last column states whether $2^{n-2}<N$, the condition under which searching the pairs $(x,\alpha)$ can beat the enumeration of $\mathcal{F}_k$.}\label{tab:resources}
+\small
+\begin{tabular}{rrrrrrrrc}
+\toprule
+$n$ & $m$ & $k$ & $N$ & $A_k$ & Truth table & Arith. qubits & Arith. oracle & $2^{n-2}<N$ \\
+\midrule
+3 & 3 & 1 & 4 & 8 / 8 & 6 / 9 & 18 & 690 / 2{,}055 & yes \\
+4 & 7 & 1 & 8 & 24 / 24 & 122 / 242 & 29 & 2{,}008 / 6{,}533 & yes \\
+4 & 7 & 2 & 29 & 76 / 121 & 122 / 242 & 29 & 2{,}014 / 6{,}353 & yes \\
+5 & 10 & 1 & 11 & 36 / 36 & 290 / 686 & 34 & 2{,}344 / 7{,}465 & yes \\
+5 & 10 & 2 & 56 & 118 / 190 & 290 / 686 & 34 & 2{,}338 / 7{,}315 & yes \\
+6 & 12 & 1 & 13 & 44 / 44 & 442 / 1096 & 43 & 4{,}202 / 14{,}296 & no \\
+6 & 12 & 2 & 79 & 146 / 236 & 442 / 1096 & 43 & 4{,}202 / 14{,}296 & yes \\
+7 & 14 & 1 & 15 & 52 / 52 & 1252 / 3058 & 46 & 4{,}140 / 13{,}615 & no \\
+7 & 14 & 2 & 106 & 174 / 282 & 626 / 1514 & 46 & 4{,}146 / 13{,}927 & yes \\
+\bottomrule
+\end{tabular}
+\end{table*}

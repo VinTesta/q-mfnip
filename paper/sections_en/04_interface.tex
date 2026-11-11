@@ -1,0 +1,67 @@
+\section{A Quantum Interface for the MFNIP}\label{sec:interface}
+
+Grover-type algorithms do not operate on an optimization problem directly. They need a register of qubits, a unitary that prepares the search space, and a phase oracle that marks the good elements. This section builds these components for the MFNIP, together with the classical loop that drives them.
+
+\subsection{Encoding}
+Each arc $a\in A$ is assigned one qubit, and the computational basis state $\ket{x}$, with $x\in\{0,1\}^m$, represents the interdiction plan that removes exactly the arcs with $x_a=1$. No other variable is encoded, because the follower's problem, the maximum flow, is solved inside the oracle. The search register therefore has $m$ qubits, against $n+2m$ binary variables in the MILP~\eqref{eq:milp}.
+
+\subsection{Search space and budget}\label{sec:interface-space}
+A naive interface would start from the uniform superposition over the hypercube, $H^{\otimes m}\ket{0^m}$, and enforce the budget inside the predicate. Amplitude amplification would then need $\Theta(\sqrt{2^m})$ queries, whereas a classical algorithm that enumerates only the feasible plans needs $|\{x : c^\top x\le B\}|$ evaluations. In non-degenerate instances the feasible set is much smaller than the hypercube, so the comparison can be lost before it starts. In 13 of 15 instances of our random generator (Section~\ref{sec:method}), the feasible set has fewer than $\sqrt{2^m}$ elements. The two exceptions have $m=12$, and the gap widens with $m$, since for $m=25$ there are at most 374 feasible plans against $\sqrt{2^{25}}\approx 5{,}793$. A search over the hypercube would therefore be slower than the trivial classical reference.
+
+We therefore use the cardinality variant of Section~\ref{sec:bg-mfnip}, in which each arc costs one unit and the budget is an integer $k$, and we make the quantum algorithm search exactly the set that classical enumeration traverses, namely $\Fk$ in~\eqref{eq:Fk} with $N=|\Fk|$. The budget is enforced by the state preparation
+\begin{equation}\label{eq:ak}
+\Ak\ket{0^m} = \frac{1}{\sqrt{N}}\sum_{x\in\Fk}\ket{x},
+\end{equation}
+which we build in two stages.
+\begin{enumerate}
+\item \emph{Weight in unary.} A cascade of one $R_Y$ rotation and $k-1$ controlled $R_Y$ rotations on the last $k$ qubits prepares $\sum_{\ell=0}^{k}\sqrt{\binom{m}{\ell}/N}\,\ket{0^{m-\ell}1^{\ell}}$. The $\ell$-th rotation sets the conditional probability that the weight is at least $\ell$ given that it is at least $\ell-1$.
+\item \emph{Dicke unitary.} The unitary $U_{m,k}$ of B\"artschi and Eidenbenz~\cite{bartschi2019}, a product of split-and-cyclic-shift blocks with $\bigO(km)$ gates and depth $\bigO(m)$, maps $\ket{0^{m-\ell}1^{\ell}}$ to the Dicke state $\ket{D^m_\ell}$ for every $\ell\le k$. By linearity, it maps the output of the first stage to the uniform superposition~\eqref{eq:ak}.
+\end{enumerate}
+Our implementation follows the gate-level description of the blocks, and Section~\ref{sec:results} reports the gate counts.
+
+\subsection{Predicate and phase oracle}\label{sec:interface-oracle}
+For a threshold $\tau$, the predicate and the phase oracle are
+\begin{equation}\label{eq:oracle}
+\Ptau(x) = [\,F(x) < \tau\,], \qquad \Otau\ket{x} = (-1)^{\Ptau(x)}\ket{x},
+\end{equation}
+where $F(x)$ is the value of the maximum $s$--$t$ flow after the arcs with $x_a=1$ are removed. The bilevel structure enters the algorithm at this point, because each oracle call solves the follower's problem coherently for the plan $x$. We consider three realizations of $\Otau$, each with a different purpose.
+
+\paragraph{Reversible maximum flow.} A maximum flow can be computed in polynomial time, for example with $\bigO(nm^2)$ operations by the Edmonds--Karp algorithm~\cite{ahuja1993}, and Bennett's construction~\cite{bennett1973} turns this computation into $\Otau$ with $\poly(n,m)$ gates (Section~\ref{sec:advantage} gives the details). Proposition~\ref{prop:advantage} relies on this realization, whose explicit construction we leave for future work.
+
+\paragraph{Arithmetic realization over $(x,\alpha)$.} By the max-flow min-cut theorem, $F(x)=\min_{\alpha}C(\alpha,x)$, where the minimum is taken over the cut indicators $\alpha\in\{0,1\}^{V}$ with $\alpha_s=0$ and $\alpha_t=1$ and
+\begin{equation}\label{eq:cut-alpha}
+\begin{aligned}
+C(\alpha,x)&=\textstyle\sum_{a=(i,j)\in A} u_a\,\gamma_a,\\
+\gamma_a &= [\,\alpha_i=0 \wedge \alpha_j=1 \wedge x_a=0\,]
+\end{aligned}
+\end{equation}
+is the objective function of the MILP. An oracle that marks the pairs $(x,\alpha)$ with $C(\alpha,x)<\tau$ needs only multi-controlled NOT gates (one per arc, to compute $\gamma$), a weighted adder of the capacities, and an integer comparator, all of which are library gates in Qiskit~\cite{qiskit2024}. Minimum finding over the pairs returns $\min_{x,\alpha}C(\alpha,x)=\Fstar$, but the search space grows to $N\cdot 2^{n-2}$ pairs, so this realization can beat classical enumeration of $\Fk$ only when $2^{n-2}<N$. We use it to obtain concrete qubit and gate counts.
+
+\paragraph{Truth-table realization.} If the marked plans are known in advance, $\Otau$ can be written as one multi-controlled $Z$ gate per marked plan, conjugated by $X$ gates on the positions that are zero. Knowing the marked plans requires solving the instance, which usually takes time exponential in $m$, so we use this realization only to demonstrate amplitude amplification on a quantum processor.
+
+\subsection{Classical control loop}
+Minimum finding embeds amplitude amplification in a classical loop that keeps lowering the threshold (Algorithm~\ref{alg:dh}). The inner loop is the exponential search of Boyer, Brassard, H{\o}yer, and Tapp~\cite{bbht1998}, which is needed because the number of plans below the current threshold is unknown. The outer loop is the minimum-finding procedure of D\"urr and H{\o}yer~\cite{durr1996}. Each Grover iteration is the operator $G=\Ak S_0\Ak^{\dagger}\Otau$, where $S_0=2\ket{0^m}\bra{0^m}-I$. With $\Ak$ in place of $H^{\otimes m}$, this is amplitude amplification in the sense of Brassard, H{\o}yer, Mosca, and Tapp~\cite{bhmt2002}.
+
+\begin{algorithm}[t]
+\caption{Quantum minimum finding over $\Fk$ (D\"urr--H{\o}yer with BBHT search)}\label{alg:dh}
+\begin{algorithmic}[1]
+\Require preparation $\Ak$, family of oracles $\{\Otau\}$, query budget $Q$
+\State draw $y\in\Fk$ uniformly at random and evaluate $F(y)$ classically \Comment{1 evaluation}
+\State $q\gets 0$
+\While{$q < Q$}
+  \State $\tau\gets F(y)$; $c\gets 1$ \Comment{new threshold}
+  \Repeat
+    \State draw $j$ uniformly from $\{0,\dots,\lceil c\rceil-1\}$
+    \If{$q+j>Q$} \Return $y$ \EndIf
+    \State prepare $\Ak\ket{0^m}$, apply $G^{\,j}$, and measure $x$; $q\gets q+j$ \Comment{$j$ queries}
+    \State evaluate $F(x)$ classically \Comment{1 evaluation}
+    \State $c\gets\min(\lambda c,\sqrt{N})$ with $\lambda=6/5$
+  \Until{$F(x)<\tau$}
+  \State $y\gets x$
+\EndWhile
+\State \Return $y$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Cost model}\label{sec:interface-cost}
+We count two kinds of operation. A \emph{query} is one application of the Grover iteration $G$, which uses $\Otau$ once and $\Ak$ and $\Ak^{\dagger}$ once each. An \emph{evaluation} is the classical computation of $F(x)$ for a measured candidate, which costs one maximum flow computation. The cost of a run is the number of queries plus the number of evaluations. The classical rivals are measured in the same unit, one evaluation of $F$, so both sides pay for every access to the objective function. The gate cost of a query is a separate quantity, which Section~\ref{sec:results} characterizes.

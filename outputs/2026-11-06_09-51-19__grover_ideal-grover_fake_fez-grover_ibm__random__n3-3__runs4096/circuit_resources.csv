@@ -1,0 +1,17 @@
+circuit,backend,logical_qubits,physical_qubits,two_qubit_gates,total_gates,circuit_depth,two_qubit_depth,compile_time_s
+interface_j0,logical,3,3,8,13,14,8,0.032231654000497656
+interface_j1,logical,3,3,36,71,61,36,0.012012607001452125
+interface_j2,logical,3,3,64,129,108,64,0.011271256000327412
+interface_j3,logical,3,3,92,187,155,92,0.006687191998935305
+hypercube_j0,logical,3,3,0,3,2,0,0.007529247001002659
+hypercube_j1,logical,3,3,12,33,24,12,0.00734437400024035
+hypercube_j2,logical,3,3,24,63,46,24,0.009588403001544066
+hypercube_j3,logical,3,3,36,93,68,36,0.012479910999900312
+interface_j0,fake_fez,3,3,8,52,38,8,0.18273904799934826
+interface_j1,fake_fez,3,3,48,258,191,48,0.03514100100073847
+interface_j2,fake_fez,3,3,88,464,344,88,0.039425525999831734
+interface_j3,fake_fez,3,3,128,670,497,128,0.02764967999974033
+hypercube_j0,fake_fez,3,3,0,9,4,0,0.020187452000755002
+hypercube_j1,fake_fez,3,3,21,107,84,21,0.023336610000114888
+hypercube_j2,fake_fez,3,3,45,212,166,45,0.0291961339989939
+hypercube_j3,fake_fez,3,3,69,318,248,69,0.03143539699885878

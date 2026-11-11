@@ -1,0 +1,7 @@
+environment,backend,job_id,date,variant,iterations,shots,depth,two_qubit_gates,qpu_seconds,queue_seconds,total_seconds,theory,frequency,uniform,p_value
+ideal simulator,aer_simulator,2ae61750-4086-4a94-b962-05293df54b3b,2026-11-06T09:51:20-03:00,interface,1,4096,30,6,,,,1.0,1.0,0.25,0.0
+ideal simulator,aer_simulator,2ae61750-4086-4a94-b962-05293df54b3b,2026-11-06T09:51:20-03:00,hypercube,2,4096,10,0,,,,0.9453124999999999,0.9423828125,0.125,0.0
+noisy simulator (FakeFez),fake_fez,9f083af2-4209-497d-90de-fa0a6cbf0d00,2026-11-06T09:51:43-03:00,interface,1,4096,110,29,,,,1.0,0.89794921875,0.25,0.0
+noisy simulator (FakeFez),fake_fez,9f083af2-4209-497d-90de-fa0a6cbf0d00,2026-11-06T09:51:43-03:00,hypercube,2,4096,144,39,,,,0.9453124999999999,0.83349609375,0.125,0.0
+IBM hardware,ibm_fez,dbmujid8mdtc73d8m2h0,2026-11-06T12:34:25-03:00,interface,1,4096,110,29,11.0,2474.695051,2488.892293,1.0,0.815185546875,0.25,0.0
+IBM hardware,ibm_fez,dbmujid8mdtc73d8m2h0,2026-11-06T12:34:25-03:00,hypercube,2,4096,144,39,11.0,2474.695051,2488.892293,0.9453124999999999,0.817626953125,0.125,0.0

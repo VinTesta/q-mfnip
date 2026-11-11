@@ -1,0 +1,30 @@
+\section{Results}\label{sec:results}
+
+\subsection{Validation}\label{sec:results-validation}
+All checks of Section~\ref{sec:method-validation} passed before the measurements. The MILP certified the optimum of all 30 instances of E1, the optimum over the enumerated space $\Fk$ matched the MILP on all 30, and all instances were non-degenerate ($0<\Fstar<F(0)$). An independent maximum flow computation confirmed the optimality of each of the 18{,}000 runs that reported an optimal plan.
+
+\subsection{Scaling of the cost to the optimum (H1)}\label{sec:results-scaling}
+The mean cost of minimum finding grew with the square root of the number of feasible plans, and that of random-order search grew linearly (Fig.~\ref{fig:scaling}). Against $N$, the fitted exponent of minimum finding was $\beta=0.494$ (95\% CI $[0.460,0.523]$, $R^2=0.977$), inside the registered interval $[0.4,0.6]$, so H1 is not refuted. The confidence interval also contains the theoretical value $0.5$. Random-order search had $\beta=0.975$ ($[0.940,1.006]$). Against $N/M$, which accounts for the number of optimal plans, the exponents were $0.510$ ($[0.497,0.529]$, $R^2=0.995$) and $1.001$ ($[0.984,1.022]$), respectively.
+
+On the three largest instances ($N=974{,}121$), minimum finding reached the optimum after 1{,}750 queries and evaluations on average, against 383{,}687 evaluations for random-order search and 974{,}121 for enumeration. Across instances, the mean cost of minimum finding ranged from $0.90\sqrt{N}$ to $2.67\sqrt{N}$, and the lowest values occurred on instances with several optimal plans ($M$ up to 4). All 6{,}000 runs of minimum finding reached the optimum within the budget $Q$ of Proposition~\ref{prop:advantage}, counting queries and evaluations, and the mean cost never exceeded 10.1\% of $Q$. Averaged over the instances, the mean cost of random-order search was within 1\% of the theoretical value $(N+1)/(M+1)$.
+
+\begin{figure}[t]
+\centering
+\input{figures/fig_scaling}
+\caption{Mean cost to the optimum of minimum finding and random-order search on the 30 instances of E1 (200 runs per instance), with least-squares fits and the enumeration cost $N$ for reference.}\label{fig:scaling}
+\end{figure}
+
+\subsection{Resources of the interface}\label{sec:results-resources}
+The Dicke preparation was the cheapest component and the arithmetic oracle the most expensive (Table~\ref{tab:resources}). For networks with 3 to 14 arcs, the preparation $\Ak$ used 8 to 174 two-qubit gates in the logical count. The truth-table oracle grew quickly with $m$ and with the number of marked plans. The arithmetic oracle over $(x,\alpha)$ used 18 to 46 qubits, of which only $m+n-2$ take part in the search, while the others are ancillas for the cut indicators, the weighted sum, and the comparison. It needed 690 to 4{,}202 two-qubit gates in the logical count and 2{,}055 to 14{,}296 after transpilation to the Heron model, where routing on the heavy-hex connectivity roughly triples the count. The condition $2^{n-2}<N$ held on 7 of the 9 instances and failed on the two instances with $k=1$ and $n\ge 6$.
+
+\input{tables_en/t3_resources}
+
+\subsection{Amplitude amplification on quantum hardware (H2)}\label{sec:results-hardware}
+The E3 instance has three arcs, $s\to 1$, $s\to t$, and $1\to t$, with capacities 7, 10, and 6, maximum flow $F(0)=16$, and a single optimal plan, which removes $s\to t$ and leaves $\Fstar=6$. On the ideal simulator, the frequency of the optimal plan was within three standard errors of theory in all eight circuits. Table~\ref{tab:hardware} lists the frequencies at the optimal number of iterations. On the IBM Heron processor \texttt{ibm\_fez} (job \texttt{dbmujid8mdtc73d8m2h0}), the optimal plan was measured with frequency $0.815$ in the interface variant after one iteration and $0.818$ in the hypercube variant after two, well above the baselines $1/4$ and $1/8$ (one-sided binomial test, $p<10^{-300}$ in both cases), so H2 is not refuted. The noise model \texttt{FakeFez} gave $0.898$ and $0.833$ for the same circuits.
+
+In the exploratory comparison, the hardware frequency in the interface variant (95\% Wilson interval $[0.803,0.827]$) reached 81.5\% of the theoretical probability of one and was significantly lower than on \texttt{FakeFez} (difference $0.083$, two-sided Fisher exact test, $p<10^{-26}$). In the hypercube variant, the hardware frequency ($[0.806,0.829]$) reached 86.5\% of the theoretical probability of $0.945$ and did not differ significantly from \texttt{FakeFez} (difference $0.016$, $p=0.06$). With the interface preparation, the frequency of the optimum dropped back to $0.215$ and $0.233$ after two and three iterations, close to the theoretical value of $0.25$. In the interface variant, the fraction of shots inside $\mathcal{F}_1$ fell from $0.983$ without iterations to $0.917$ after one iteration and $0.880$ after three. The job waited 41.2 minutes in the queue of the free plan and used 11 seconds of processor time.
+
+\input{tables_en/t4_hardware}
+
+\subsection{Classical context}\label{sec:results-classical}
+The MILP solved every instance of E1 in at most 24\,ms, with no visible growth with $N$, whereas single-threaded enumeration of $\Fk$ grew linearly with $N$ and took up to 568\,s on the largest instances. In the MILP scaling study, with general costs and a limit of 20\,s, the MILP certified all three seeds of every size up to 2{,}560 nodes and 7{,}680 arcs in the random family with budgets of 50\% and 75\% of the cheapest cut. In the layered family it certified all seeds up to 4{,}098 nodes and 12{,}224 arcs, the largest size tested, with the same budgets. With a budget of 25\%, the corresponding sizes were 320 nodes in the random family, where one instance with 640 nodes exceeded the limit, and 2{,}306 nodes in the layered family.

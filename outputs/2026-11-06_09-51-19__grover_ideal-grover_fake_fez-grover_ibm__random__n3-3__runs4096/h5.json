@@ -1,0 +1,60 @@
+{
+  "decision_environment": "IBM hardware",
+  "rows": [
+    {
+      "environment": "ideal simulator",
+      "variant": "interface",
+      "iterations": 1,
+      "probability": 1.0,
+      "frequency": 1.0,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "environment": "noisy simulator (FakeFez)",
+      "variant": "interface",
+      "iterations": 1,
+      "probability": 1.0,
+      "frequency": 0.89794921875,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "environment": "IBM hardware",
+      "variant": "interface",
+      "iterations": 1,
+      "probability": 1.0,
+      "frequency": 0.815185546875,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "environment": "ideal simulator",
+      "variant": "hypercube",
+      "iterations": 2,
+      "probability": 0.9453124999999999,
+      "frequency": 0.9423828125,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "environment": "noisy simulator (FakeFez)",
+      "variant": "hypercube",
+      "iterations": 2,
+      "probability": 0.9453124999999999,
+      "frequency": 0.83349609375,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "environment": "IBM hardware",
+      "variant": "hypercube",
+      "iterations": 2,
+      "probability": 0.9453124999999999,
+      "frequency": 0.817626953125,
+      "p_value": 0.0,
+      "significant": true
+    }
+  ],
+  "verdict": "not refuted"
+}

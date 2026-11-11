@@ -1,0 +1,44 @@
+[
+  {
+    "solver": "milp",
+    "family": "layered",
+    "budget_fraction": 0.25,
+    "n_star_nodes": 2306,
+    "n_star_arcs": 6864.0,
+    "first_failure_nodes": 4098.0,
+    "smallest_tested_nodes": 18,
+    "largest_tested_nodes": 4098,
+    "reached_largest": false,
+    "rate": "certified_rate",
+    "p": 1.0,
+    "contiguous": true
+  },
+  {
+    "solver": "milp",
+    "family": "layered",
+    "budget_fraction": 0.5,
+    "n_star_nodes": 4098,
+    "n_star_arcs": 12224.0,
+    "first_failure_nodes": NaN,
+    "smallest_tested_nodes": 18,
+    "largest_tested_nodes": 4098,
+    "reached_largest": true,
+    "rate": "certified_rate",
+    "p": 1.0,
+    "contiguous": true
+  },
+  {
+    "solver": "milp",
+    "family": "layered",
+    "budget_fraction": 0.75,
+    "n_star_nodes": 4098,
+    "n_star_arcs": 12224.0,
+    "first_failure_nodes": NaN,
+    "smallest_tested_nodes": 18,
+    "largest_tested_nodes": 4098,
+    "reached_largest": true,
+    "rate": "certified_rate",
+    "p": 1.0,
+    "contiguous": true
+  }
+]

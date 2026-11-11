@@ -1,0 +1,39 @@
+{
+  "experiment_id": "2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1",
+  "naming": {
+    "family": "random",
+    "size_label": "n3-7",
+    "repetitions": 1
+  },
+  "status": "completed",
+  "scenario": {
+    "family": "random",
+    "sizes": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "budget_fractions": [
+      0.5
+    ],
+    "seeds": [
+      0
+    ],
+    "params": {
+      "arc_factor": 2.0,
+      "cost_range": [
+        1,
+        1
+      ]
+    },
+    "budgets": [
+      1,
+      2
+    ],
+    "skip_degenerate": true
+  },
+  "backend": "fake_fez",
+  "seed": 0
+}

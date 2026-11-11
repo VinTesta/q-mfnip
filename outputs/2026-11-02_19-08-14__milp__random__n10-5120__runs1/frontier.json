@@ -1,0 +1,44 @@
+[
+  {
+    "solver": "milp",
+    "family": "random",
+    "budget_fraction": 0.25,
+    "n_star_nodes": 320,
+    "n_star_arcs": 960.0,
+    "first_failure_nodes": 640.0,
+    "smallest_tested_nodes": 10,
+    "largest_tested_nodes": 5120,
+    "reached_largest": false,
+    "rate": "certified_rate",
+    "p": 1.0,
+    "contiguous": true
+  },
+  {
+    "solver": "milp",
+    "family": "random",
+    "budget_fraction": 0.5,
+    "n_star_nodes": 2560,
+    "n_star_arcs": 7680.0,
+    "first_failure_nodes": 5120.0,
+    "smallest_tested_nodes": 10,
+    "largest_tested_nodes": 5120,
+    "reached_largest": false,
+    "rate": "certified_rate",
+    "p": 1.0,
+    "contiguous": true
+  },
+  {
+    "solver": "milp",
+    "family": "random",
+    "budget_fraction": 0.75,
+    "n_star_nodes": 2560,
+    "n_star_arcs": 7680.0,
+    "first_failure_nodes": 5120.0,
+    "smallest_tested_nodes": 10,
+    "largest_tested_nodes": 5120,
+    "reached_largest": false,
+    "rate": "certified_rate",
+    "p": 1.0,
+    "contiguous": true
+  }
+]

@@ -1,0 +1,9 @@
+variant,iterations,N,uniform,probability
+interface,0,4,0.25,0.25
+interface,1,4,0.25,1.0
+interface,2,4,0.25,0.24999999999999956
+interface,3,4,0.25,0.2500000000000001
+hypercube,0,8,0.125,0.12500000000000003
+hypercube,1,8,0.125,0.7812500000000001
+hypercube,2,8,0.125,0.9453124999999999
+hypercube,3,8,0.125,0.330078125

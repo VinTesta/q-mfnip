@@ -1,0 +1,6 @@
+{
+  "milp_certified": "30/30",
+  "enumeration_matches_milp": "30/30",
+  "non_degenerate": "30/30",
+  "found_runs_with_zero_gap": "18000/18000"
+}

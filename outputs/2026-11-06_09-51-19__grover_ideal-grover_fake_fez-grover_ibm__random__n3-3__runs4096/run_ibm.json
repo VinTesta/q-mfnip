@@ -1,0 +1,139 @@
+{
+  "job_id": "dbmujid8mdtc73d8m2h0",
+  "backend": "ibm_fez",
+  "submitted_at": "2026-11-06T11:52:54-03:00",
+  "shots": 4096,
+  "finished_at": "2026-11-06T12:34:25-03:00",
+  "hardware": true,
+  "transpiled": [
+    {
+      "name": "interface_j0",
+      "depth": 18,
+      "two_qubit_gates": 4,
+      "operations": {
+        "rz": 14,
+        "sx": 14,
+        "cz": 4,
+        "measure": 3,
+        "x": 1,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "interface_j1",
+      "depth": 110,
+      "two_qubit_gates": 29,
+      "operations": {
+        "sx": 73,
+        "rz": 57,
+        "cz": 29,
+        "measure": 3,
+        "x": 1,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "interface_j2",
+      "depth": 201,
+      "two_qubit_gates": 54,
+      "operations": {
+        "sx": 132,
+        "rz": 102,
+        "cz": 54,
+        "measure": 3,
+        "x": 1,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "interface_j3",
+      "depth": 292,
+      "two_qubit_gates": 79,
+      "operations": {
+        "sx": 191,
+        "rz": 147,
+        "cz": 79,
+        "measure": 3,
+        "x": 1,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "hypercube_j0",
+      "depth": 4,
+      "two_qubit_gates": 0,
+      "operations": {
+        "rz": 6,
+        "sx": 3,
+        "measure": 3,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "hypercube_j1",
+      "depth": 68,
+      "two_qubit_gates": 17,
+      "operations": {
+        "sx": 37,
+        "rz": 36,
+        "cz": 17,
+        "x": 4,
+        "measure": 3,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "hypercube_j2",
+      "depth": 144,
+      "two_qubit_gates": 39,
+      "operations": {
+        "sx": 74,
+        "rz": 63,
+        "cz": 39,
+        "x": 9,
+        "measure": 3,
+        "barrier": 1
+      }
+    },
+    {
+      "name": "hypercube_j3",
+      "depth": 210,
+      "two_qubit_gates": 57,
+      "operations": {
+        "sx": 113,
+        "rz": 98,
+        "cz": 57,
+        "x": 12,
+        "measure": 3,
+        "barrier": 1
+      }
+    }
+  ],
+  "usage": 0,
+  "metrics": {
+    "caller": "qiskit_ibm_runtime~sampler.py",
+    "qiskit_version": "qiskit_ibm_runtime-0.51.0,qiskit-2.6.1*,qiskit_aer-0.18.2*",
+    "timestamps": {
+      "created": "2026-11-06T14:52:57.221346Z",
+      "finished": "2026-11-06T15:34:26.113639Z",
+      "running": "2026-11-06T15:34:11.916397Z"
+    },
+    "usage": {
+      "qpu_charge_time_seconds": 11,
+      "value": 0.171769,
+      "unit": "resource_units",
+      "status": "pending",
+      "details": [
+        {
+          "value": 0.171769,
+          "unit": "resource_units",
+          "metric": {
+            "id": "caffe3ca-729c-5750-8777-df63bbf8bfd9",
+            "value": 11
+          }
+        }
+      ]
+    },
+    "circuits_execution_time_ns": 8589915904
+  }
+}

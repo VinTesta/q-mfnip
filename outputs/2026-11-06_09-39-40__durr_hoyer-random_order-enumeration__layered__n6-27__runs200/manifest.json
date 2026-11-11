@@ -1,0 +1,118 @@
+{
+  "experiment_id": "2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200",
+  "naming": {
+    "family": "layered",
+    "size_label": "n6-27",
+    "repetitions": 200
+  },
+  "status": "completed",
+  "started_at": "2026-11-06T09:39:40-03:00",
+  "config": {
+    "scenario": {
+      "family": "layered",
+      "sizes": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "budget_fractions": [
+        0.5
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "params": {
+        "cost_range": [
+          1,
+          1
+        ]
+      },
+      "budgets": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "skip_degenerate": true
+    },
+    "solvers": [
+      {
+        "name": "Durr-Hoyer quantum minimum finding (simulated at query level)",
+        "short_name": "durr_hoyer",
+        "label": "durr_hoyer",
+        "class": "qmfnip.solvers.search.DurrHoyerSolver",
+        "params": {
+          "query_budget": "unbounded"
+        },
+        "requires_hardware": false
+      },
+      {
+        "name": "Classical search over the feasible interdictions in random order",
+        "short_name": "random_order",
+        "label": "random_order",
+        "class": "qmfnip.solvers.search.RandomOrderSolver",
+        "params": {},
+        "requires_hardware": false
+      },
+      {
+        "name": "Exhaustive enumeration of the feasible interdiction sets",
+        "short_name": "brute_force",
+        "label": "enumeration",
+        "class": "qmfnip.solvers.exact.BruteForceSolver",
+        "params": {
+          "label": "enumeration"
+        },
+        "requires_hardware": false
+      }
+    ],
+    "repetitions": 200,
+    "time_limit_s": 3600.0,
+    "base_seed": 0,
+    "reference": {
+      "name": "Mixed-integer linear programming (HiGHS via SciPy)",
+      "short_name": "milp",
+      "label": "milp",
+      "class": "qmfnip.solvers.exact.MILPSolver",
+      "params": {},
+      "requires_hardware": false
+    },
+    "reference_time_limit_s": 600.0,
+    "allow_hardware": false
+  },
+  "instances": {
+    "layered-n6-m8-B1-s0": "3adbeb1f0f53f363",
+    "layered-n6-m8-B1-s1": "e0308c0f40f86ab5",
+    "layered-n6-m8-B1-s2": "3fea0bf32afc1e3f",
+    "layered-n11-m24-B1-s0": "343ad71c0997b385",
+    "layered-n11-m24-B1-s1": "1d85b7abf40ba9db",
+    "layered-n11-m24-B1-s2": "2b16966ffcbb7229",
+    "layered-n11-m24-B2-s0": "115dd441c24fd305",
+    "layered-n11-m24-B2-s1": "6b817a4c93847e56",
+    "layered-n11-m24-B2-s2": "0b704a66fca68412",
+    "layered-n18-m44-B1-s0": "4b793f9a1cb092ac",
+    "layered-n18-m44-B1-s1": "88a80b2abda18d96",
+    "layered-n18-m44-B1-s2": "974e16645be98d51",
+    "layered-n18-m44-B2-s0": "c3d276609b27de83",
+    "layered-n18-m44-B2-s1": "45d3824b1a898fac",
+    "layered-n18-m44-B2-s2": "088c3dee7bf5b887",
+    "layered-n18-m44-B3-s0": "036119ee0efda5b6",
+    "layered-n18-m44-B3-s1": "60ba16e5913a006e",
+    "layered-n18-m44-B3-s2": "56761d6f9de799a1",
+    "layered-n27-m70-B1-s0": "e4b1463581616ff3",
+    "layered-n27-m70-B1-s1": "dd7e00b7c82f8256",
+    "layered-n27-m70-B1-s2": "13f386160a46a98b",
+    "layered-n27-m70-B2-s0": "794d3cb978b0efdb",
+    "layered-n27-m70-B2-s1": "f1fe182e6f1f9d8b",
+    "layered-n27-m70-B2-s2": "275c5cd98c7ceab9",
+    "layered-n27-m70-B3-s0": "ee30aa475c5ea0bb",
+    "layered-n27-m70-B3-s1": "06fdd5e641660073",
+    "layered-n27-m70-B3-s2": "d77be384e14979b4",
+    "layered-n27-m70-B4-s0": "f29b15cc7b7383c8",
+    "layered-n27-m70-B4-s1": "bf587e53a820140c",
+    "layered-n27-m70-B4-s2": "c0ea3fa6a688c1dd"
+  },
+  "finished_at": "2026-11-06T10:02:11-03:00"
+}

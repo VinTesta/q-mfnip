@@ -1,0 +1,48 @@
+{
+  "captured_at": "2026-11-02T19:07:32-03:00",
+  "timezone": "-03",
+  "python": {
+    "version": "3.14.4",
+    "implementation": "CPython",
+    "virtual_environment": true
+  },
+  "system": {
+    "os": "Linux",
+    "release": "7.0.0-38-generic",
+    "version": "#38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026",
+    "machine": "x86_64",
+    "platform": "Linux-7.0.0-38-generic-x86_64-desconhecido-with-glibc2.43"
+  },
+  "hardware": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i5-1335U",
+    "physical_cores": 10,
+    "logical_cores": 12,
+    "cpu_max_mhz": 3800.0,
+    "memory_total_gb": 14.8,
+    "gpu": null
+  },
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "matplotlib": "3.11.2",
+    "psutil": "7.2.2",
+    "dimod": "0.12.22",
+    "dwave-neal": "0.6.0",
+    "dwave-system": "1.36.0",
+    "dwave-ocean-sdk": "9.5.0",
+    "minorminer": "0.2.22",
+    "qiskit": "2.6.1",
+    "qiskit-aer": "0.18.2",
+    "qiskit-ibm-runtime": "0.51.0",
+    "qmfnip": "0.1.0"
+  },
+  "solver_backends": {
+    "milp": "HiGHS bundled with SciPy; thread count is not configurable through scipy.optimize.milp"
+  },
+  "git": {
+    "commit": "617d3ad5442fc8f29fcf988eb3a6eb61216de7b9",
+    "branch": "master",
+    "dirty": true
+  }
+}

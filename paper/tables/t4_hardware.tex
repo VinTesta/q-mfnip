@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Amplification at the optimal number of Grover iterations $j$ (4{,}096 shots per circuit). Depth and two-qubit gates after transpilation; $p$: one-sided binomial test of the frequency of the optimum against $1/N$.}\label{tab:hardware}
+\small
+\begin{tabular}{llrrrrrrr}
+\toprule
+Environment & Variant & $j$ & Depth & 2q gates & Theory & Frequency & $1/N$ & $p$ \\
+\midrule
+ideal simulator & interface & 1 & -- & -- & 1.000 & 1.000 & 0.250 & $<10^{-300}$ \\
+ideal simulator & hypercube & 2 & -- & -- & 0.945 & 0.942 & 0.125 & $<10^{-300}$ \\
+noisy sim. (\texttt{FakeFez}) & interface & 1 & 110 & 29 & 1.000 & 0.898 & 0.250 & $<10^{-300}$ \\
+noisy sim. (\texttt{FakeFez}) & hypercube & 2 & 144 & 39 & 0.945 & 0.833 & 0.125 & $<10^{-300}$ \\
+hardware (\texttt{ibm\_fez}) & interface & 1 & 110 & 29 & 1.000 & 0.815 & 0.250 & $<10^{-300}$ \\
+hardware (\texttt{ibm\_fez}) & hypercube & 2 & 144 & 39 & 0.945 & 0.818 & 0.125 & $<10^{-300}$ \\
+\bottomrule
+\end{tabular}
+\end{table*}

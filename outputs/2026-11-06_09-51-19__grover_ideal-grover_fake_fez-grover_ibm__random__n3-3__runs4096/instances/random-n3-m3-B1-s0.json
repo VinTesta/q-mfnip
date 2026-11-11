@@ -1,0 +1,46 @@
+{
+  "instance_id": "random-n3-m3-B1-s0",
+  "content_hash": "d3bc9ddd9abd8831",
+  "family": "random",
+  "seed": 0,
+  "budget_fraction": null,
+  "generator_params": {
+    "arc_factor": 10.0,
+    "capacity_range": [
+      1,
+      10
+    ],
+    "cost_range": [
+      1,
+      1
+    ]
+  },
+  "n": 3,
+  "s": 0,
+  "t": 2,
+  "budget": 1,
+  "arcs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "capacity": [
+    7,
+    10,
+    6
+  ],
+  "cost": [
+    1,
+    1,
+    1
+  ]
+}

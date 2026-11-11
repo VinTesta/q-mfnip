@@ -1,0 +1,12 @@
+instance_id,n,m,k,N,M,circuit_depth,circuit_depth,circuit_depth,circuit_depth,circuit_depth,circuit_depth,logical_qubits,logical_qubits,logical_qubits,logical_qubits,logical_qubits,logical_qubits,physical_qubits,physical_qubits,physical_qubits,physical_qubits,physical_qubits,physical_qubits,two_qubit_gates,two_qubit_gates,two_qubit_gates,two_qubit_gates,two_qubit_gates,two_qubit_gates
+,,,,,,arithmetic_oracle,arithmetic_oracle,dicke_preparation,dicke_preparation,truth_table_oracle,truth_table_oracle,arithmetic_oracle,arithmetic_oracle,dicke_preparation,dicke_preparation,truth_table_oracle,truth_table_oracle,arithmetic_oracle,arithmetic_oracle,dicke_preparation,dicke_preparation,truth_table_oracle,truth_table_oracle,arithmetic_oracle,arithmetic_oracle,dicke_preparation,dicke_preparation,truth_table_oracle,truth_table_oracle
+,,,,,,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical,fake_fez,logical
+random-n3-m3-B1-s0,3,3,1,4,1,4937,1049,37,13,41,12,18,18,3,3,3,3,21,17,3,3,3,3,2055,690,8,8,9,6
+random-n4-m7-B1-s0,4,7,1,8,1,14585,3007,105,37,640,130,29,29,7,7,7,7,33,28,7,7,7,7,6533,2008,24,24,242,122
+random-n4-m7-B2-s0,4,7,2,29,1,14563,3029,405,110,640,130,29,29,7,7,7,7,31,28,7,7,7,7,6353,2014,121,76,242,122
+random-n5-m10-B1-s0,5,10,1,11,1,16810,3441,156,55,1301,214,34,34,10,10,10,10,36,33,10,10,14,10,7465,2344,36,36,686,290
+random-n5-m10-B2-s0,5,10,2,56,1,16481,3421,612,170,1301,214,34,34,10,10,10,10,33,33,10,10,14,10,7315,2338,190,118,686,290
+random-n6-m12-B1-s0,6,12,1,13,1,31110,6323,190,67,1423,270,43,43,12,12,12,12,50,42,12,12,15,12,14296,4202,44,44,1096,442
+random-n6-m12-B2-s0,6,12,2,79,1,31110,6323,760,210,1421,270,43,43,12,12,12,12,50,42,12,12,15,12,14296,4202,236,146,1096,442
+random-n7-m14-B1-s0,7,14,1,15,2,29548,6091,224,79,4012,651,46,46,14,14,14,14,49,45,14,14,14,14,13615,4140,52,52,3058,1252
+random-n7-m14-B2-s0,7,14,2,106,1,29915,6091,908,250,2024,326,46,46,14,14,14,14,53,45,14,14,14,14,13927,4146,282,174,1514,626

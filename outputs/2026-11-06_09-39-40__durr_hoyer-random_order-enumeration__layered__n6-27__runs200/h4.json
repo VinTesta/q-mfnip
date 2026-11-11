@@ -1,0 +1,12 @@
+{
+  "beta": 0.4935152469840707,
+  "ci_low": 0.46046066907623684,
+  "ci_high": 0.5232358989480635,
+  "interval": [
+    0.4,
+    0.6
+  ],
+  "point_estimate_inside": true,
+  "ci_inside": true,
+  "verdict": "not refuted"
+}
