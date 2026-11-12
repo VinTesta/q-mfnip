@@ -21,13 +21,13 @@ is the value of the maximum $s$--$t$ flow after the interdiction. Evaluating $F(
 
 \subsection{The maximum flow network interdiction problem}\label{sec:bg-mfnip}
 
-\paragraph{Bilevel formulation.} Each arc has an interdiction cost $c_a\in\mathbb{Z}_{>0}$, and the interdictor has a budget $B$. The MFNIP is a Stackelberg game in which the interdictor, the leader, first removes a set of arcs within the budget, and the network user, the follower, then sends a maximum flow through the remaining network~\cite{wood1993,smith2020}. The optimal value of the problem is
+\paragraph{Bilevel formulation} Each arc has an interdiction cost $c_a\in\mathbb{Z}_{>0}$, and the interdictor has a budget $B$. The MFNIP is a Stackelberg game in which the interdictor, the leader, first removes a set of arcs within the budget, and the network user, the follower, then sends a maximum flow through the remaining network~\cite{wood1993,smith2020}. The optimal value of the problem is
 \begin{equation}\label{eq:mfnip}
   \Fstar \;=\; \min_{x\in\{0,1\}^{m}} \bigl\{\, F(x) \;:\; c^{\top}x\le B \,\bigr\},
 \end{equation}
 where the inner problem $F(x)$ of \eqref{eq:F} is the follower's linear program.
 
-\paragraph{Single-level reformulation.} Because the follower's problem is a linear program, it can be replaced by its dual, the minimum cut problem, and the two minimizations merge into one. Wood~\cite{wood1993} linearized the product of the cut and interdiction variables and obtained a MILP with three groups of binary variables. The variable $\alpha_i$ gives the side of node $i$ in the cut ($\alpha_i=0$ on the source side and $\alpha_i=1$ on the sink side), $\gamma_a$ indicates that arc $a$ crosses the cut and is \emph{not} interdicted, so that its capacity counts toward the cut, and $x_a$ indicates that arc $a$ is interdicted. The model is
+\paragraph{Single-level reformulation} Because the follower's problem is a linear program, it can be replaced by its dual, the minimum cut problem, and the two minimizations merge into one. Wood~\cite{wood1993} linearized the product of the cut and interdiction variables and obtained a MILP with three groups of binary variables. The variable $\alpha_i$ gives the side of node $i$ in the cut ($\alpha_i=0$ on the source side and $\alpha_i=1$ on the sink side), $\gamma_a$ indicates that arc $a$ crosses the cut and is \emph{not} interdicted, so that its capacity counts toward the cut, and $x_a$ indicates that arc $a$ is interdicted. The model is
 \begin{equation}\label{eq:milp}
 \begin{aligned}
   \min_{\alpha,\gamma,x}\quad & \sum_{a\in A} u_a\gamma_a \\
@@ -38,9 +38,9 @@ where the inner problem $F(x)$ of \eqref{eq:F} is the follower's linear program.
 \end{aligned}
 \end{equation}
 
-\paragraph{Complexity.} Wood~\cite{wood1993} proved by reduction from the clique problem that the decision version of the MFNIP is strongly NP-complete. According to Zenklusen~\cite{zenklusen2010}, the result holds even when every interdiction cost is $1$ or $\infty$, that is, with unit costs and some arcs that cannot be interdicted.
+\paragraph{Complexity} Wood~\cite{wood1993} proved by reduction from the clique problem that the decision version of the MFNIP is strongly NP-complete. According to Zenklusen~\cite{zenklusen2010}, the result holds even when every interdiction cost is $1$ or $\infty$, that is, with unit costs and some arcs that cannot be interdicted.
 
-\paragraph{Cardinality variant.} This paper studies the variant with unit costs, $c_a=1$ for every arc, and budget $B=k$. The feasible set and its size are
+\paragraph{Cardinality variant} This paper studies the variant with unit costs, $c_a=1$ for every arc, and budget $B=k$. The feasible set and its size are
 \begin{equation}\label{eq:Fk}
   \Fk = \bigl\{ x\in\{0,1\}^{m} : |x|\le k \bigr\},\quad N = |\Fk| = \textstyle\sum_{i=0}^{k}\binom{m}{i},
 \end{equation}
@@ -64,7 +64,7 @@ where $S_\chi$ flips the sign of the good basis states (it is the phase oracle o
 \end{equation}
 \cite[Section~2]{bhmt2002}. Grover's algorithm is the case $A=H^{\otimes m}$. When $A\ket{0}$ is the uniform superposition over a domain of $N$ elements of which $M$ are good, $a=M/N$. If $a$ is known, $j=\lfloor\pi/(4\theta_a)\rfloor$ iterations return a good state with probability at least $\max(1-a,a)$~\cite[Theorem~2]{bhmt2002}, which takes $\bigO(\sqrt{N/M})$ applications of $A$, of $A^{-1}$, and of the oracle. A useful special case for small demonstrations is $M/N=1/4$, for which $\theta_a=\pi/6$ and a single iteration finds a good state with certainty~\cite[Section~3.1]{bbht1998}.
 
-\paragraph{Unknown number of solutions.} When $M$ is unknown, a fixed number of iterations can fail with high probability because \eqref{eq:sin2} oscillates in $j$. Boyer, Brassard, H{\o}yer, and Tapp (BBHT)~\cite{bbht1998} proposed an \emph{exponential search} for this case. It starts with $\mu=1$ and a growth factor $\lambda=6/5$ (any $\lambda$ strictly between $1$ and $4/3$ works). In each round it draws $j$ uniformly among the integers $0\le j<\mu$, applies $j$ Grover iterations, and measures. It stops if the result is marked and otherwise sets $\mu\leftarrow\min(\lambda\mu,\sqrt{N})$ and repeats. For $1\le M\le 3N/4$, the expected number of Grover iterations is at most $\tfrac{9}{2}\,\mu_0$ with $\mu_0=1/\sin(2\theta)<\sqrt{N/M}$, which is $\bigO(\sqrt{N/M})$~\cite[Theorem~3]{bbht1998}.
+\paragraph{Unknown number of solutions} When $M$ is unknown, a fixed number of iterations can fail with high probability because \eqref{eq:sin2} oscillates in $j$. Boyer, Brassard, H{\o}yer, and Tapp (BBHT)~\cite{bbht1998} proposed an \emph{exponential search} for this case. It starts with $\mu=1$ and a growth factor $\lambda=6/5$ (any $\lambda$ strictly between $1$ and $4/3$ works). In each round it draws $j$ uniformly among the integers $0\le j<\mu$, applies $j$ Grover iterations, and measures. It stops if the result is marked and otherwise sets $\mu\leftarrow\min(\lambda\mu,\sqrt{N})$ and repeats. For $1\le M\le 3N/4$, the expected number of Grover iterations is at most $\tfrac{9}{2}\,\mu_0$ with $\mu_0=1/\sin(2\theta)<\sqrt{N/M}$, which is $\bigO(\sqrt{N/M})$~\cite[Theorem~3]{bbht1998}.
 
 \subsection{Quantum minimum finding}\label{sec:bg-dh}
 

@@ -1,6 +1,6 @@
 \begin{table}[t]
 \centering
-\caption{Fitted scaling exponents over the 30 instances: least-squares slope of $\log_{10}$(mean cost) against $\log_{10}$ of the regressor, with 95\% bootstrap confidence intervals (2{,}000 resamples of instances).}\label{tab:fits}
+\caption{Fitted scaling exponents on the 30 instances of E1, as least-squares slopes of $\log_{10}$ of the mean cost against $\log_{10}$ of the regressor, with 95\% bootstrap confidence intervals (2{,}000 resamples of instances). Enumeration is omitted because its cost is $N$ by definition.}\label{tab:fits}
 \small
 \begin{tabular}{llrr}
 \toprule
@@ -8,10 +8,8 @@ Method & Reg. & $\beta$ [95\% CI] & $R^2$ \\
 \midrule
 Dürr--Høyer & $N$ & 0.494 [0.460, 0.523] & 0.977 \\
 Random order & $N$ & 0.975 [0.940, 1.006] & 0.993 \\
-Enumeration & $N$ & 1.000 [1.000, 1.000] & 1.000 \\
 Dürr--Høyer & $N/M$ & 0.510 [0.497, 0.529] & 0.995 \\
 Random order & $N/M$ & 1.001 [0.984, 1.022] & 0.998 \\
-Enumeration & $N/M$ & 1.015 [0.965, 1.075] & 0.984 \\
 \bottomrule
 \end{tabular}
 \end{table}

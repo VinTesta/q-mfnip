@@ -1,6 +1,6 @@
 \begin{table}[t]
 \centering
-\caption{Classical context: median wall-clock time of the MILP (HiGHS) and of the exhaustive enumeration of $\mathcal{F}_k$ (one maximum-flow computation per plan, single thread) on the instances of Table~\ref{tab:instances}.}\label{tab:classical}
+\caption{Median wall-clock time of the MILP (HiGHS) and of the exhaustive enumeration of $\mathcal{F}_k$ (one maximum-flow computation per plan, single thread) on the instances of Table~\ref{tab:instances}.}\label{tab:classical}
 \small
 \begin{tabular}{rrrrrr}
 \toprule
@@ -18,5 +18,5 @@ $n$ & $m$ & $k$ & $N$ & MILP (ms) & Enumeration (s) \\
 27 & 70 & 4 & 974{,}121 & 10.5 & 330.9 \\
 \bottomrule
 \end{tabular}
-\par\smallskip\parbox{0.95\linewidth}{\footnotesize Largest network size $n^{*}$ such that, at every tested size up to $n^{*}$, the MILP proved optimality on all three seeds within 20\,s (random and layered families, general costs, budget $B$ as a fraction of the cost of the cheapest cut that disconnects $s$ from $t$): layered, $B$ = 25\%: 2{,}306 nodes; layered, $B$ = 50\%: 4{,}098 nodes (largest tested); layered, $B$ = 75\%: 4{,}098 nodes (largest tested); random, $B$ = 25\%: 320 nodes; random, $B$ = 50\%: 2{,}560 nodes; random, $B$ = 75\%: 2{,}560 nodes.}
+\par\smallskip\parbox{0.95\linewidth}{\footnotesize Largest network size $n^{*}$ up to which the MILP proved optimality on all three seeds of every tested size within 20\,s, with general costs and the budget $B$ given as a fraction of the cost of the cheapest cut that disconnects $s$ from $t$. The values are layered family with $B$ = 25\%, 2{,}306 nodes; layered family with $B$ = 50\%, 4{,}098 nodes (largest tested); layered family with $B$ = 75\%, 4{,}098 nodes (largest tested); random family with $B$ = 25\%, 320 nodes; random family with $B$ = 50\%, 2{,}560 nodes; random family with $B$ = 75\%, 2{,}560 nodes.}
 \end{table}

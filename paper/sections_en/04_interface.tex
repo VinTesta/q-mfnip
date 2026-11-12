@@ -26,9 +26,9 @@ For a threshold $\tau$, the predicate and the phase oracle are
 \end{equation}
 where $F(x)$ is the value of the maximum $s$--$t$ flow after the arcs with $x_a=1$ are removed. The bilevel structure enters the algorithm at this point, because each oracle call solves the follower's problem coherently for the plan $x$. We consider three realizations of $\Otau$, each with a different purpose.
 
-\paragraph{Reversible maximum flow.} A maximum flow can be computed in polynomial time, for example with $\bigO(nm^2)$ operations by the Edmonds--Karp algorithm~\cite{ahuja1993}, and Bennett's construction~\cite{bennett1973} turns this computation into $\Otau$ with $\poly(n,m)$ gates (Section~\ref{sec:advantage} gives the details). Proposition~\ref{prop:advantage} relies on this realization, whose explicit construction we leave for future work.
+\paragraph{Reversible maximum flow} A maximum flow can be computed in polynomial time, for example with $\bigO(nm^2)$ operations by the Edmonds--Karp algorithm~\cite{ahuja1993}, and Bennett's construction~\cite{bennett1973} turns this computation into $\Otau$ with $\poly(n,m)$ gates (Section~\ref{sec:advantage} gives the details). Proposition~\ref{prop:advantage} relies on this realization, whose explicit construction we leave for future work.
 
-\paragraph{Arithmetic realization over $(x,\alpha)$.} By the max-flow min-cut theorem, $F(x)=\min_{\alpha}C(\alpha,x)$, where the minimum is taken over the cut indicators $\alpha\in\{0,1\}^{V}$ with $\alpha_s=0$ and $\alpha_t=1$ and
+\paragraph{Arithmetic realization over $(x,\alpha)$} By the max-flow min-cut theorem, $F(x)=\min_{\alpha}C(\alpha,x)$, where the minimum is taken over the cut indicators $\alpha\in\{0,1\}^{V}$ with $\alpha_s=0$ and $\alpha_t=1$ and
 \begin{equation}\label{eq:cut-alpha}
 \begin{aligned}
 C(\alpha,x)&=\textstyle\sum_{a=(i,j)\in A} u_a\,\gamma_a,\\
@@ -37,7 +37,7 @@ C(\alpha,x)&=\textstyle\sum_{a=(i,j)\in A} u_a\,\gamma_a,\\
 \end{equation}
 is the objective function of the MILP. An oracle that marks the pairs $(x,\alpha)$ with $C(\alpha,x)<\tau$ needs only multi-controlled NOT gates (one per arc, to compute $\gamma$), a weighted adder of the capacities, and an integer comparator, all of which are library gates in Qiskit~\cite{qiskit2024}. Minimum finding over the pairs returns $\min_{x,\alpha}C(\alpha,x)=\Fstar$, but the search space grows to $N\cdot 2^{n-2}$ pairs, so this realization can beat classical enumeration of $\Fk$ only when $2^{n-2}<N$. We use it to obtain concrete qubit and gate counts.
 
-\paragraph{Truth-table realization.} If the marked plans are known in advance, $\Otau$ can be written as one multi-controlled $Z$ gate per marked plan, conjugated by $X$ gates on the positions that are zero. Knowing the marked plans requires solving the instance, which usually takes time exponential in $m$, so we use this realization only to demonstrate amplitude amplification on a quantum processor.
+\paragraph{Truth-table realization} If the marked plans are known in advance, $\Otau$ can be written as one multi-controlled $Z$ gate per marked plan, conjugated by $X$ gates on the positions that are zero. Knowing the marked plans requires solving the instance, which usually takes time exponential in $m$, so we use this realization only to demonstrate amplitude amplification on a quantum processor.
 
 \subsection{Classical control loop}
 Minimum finding embeds amplitude amplification in a classical loop that keeps lowering the threshold (Algorithm~\ref{alg:dh}). The inner loop is the exponential search of Boyer, Brassard, H{\o}yer, and Tapp~\cite{bbht1998}, which is needed because the number of plans below the current threshold is unknown. The outer loop is the minimum-finding procedure of D\"urr and H{\o}yer~\cite{durr1996}. Each Grover iteration is the operator $G=\Ak S_0\Ak^{\dagger}\Otau$, where $S_0=2\ket{0^m}\bra{0^m}-I$. With $\Ak$ in place of $H^{\otimes m}$, this is amplitude amplification in the sense of Brassard, H{\o}yer, Mosca, and Tapp~\cite{bhmt2002}.

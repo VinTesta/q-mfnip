@@ -35,10 +35,8 @@ Não editar à mão: reexecutar o notebook. Todo número citado no artigo sai de
 | `e1_M_max` | 4 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t1_instances.csv` |  |
 | `beta_durr_hoyer_vs_N` | 0.4935 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t2_scaling_fits.csv` | CI [0.4605, 0.5232], R2 0.9765 |
 | `beta_random_order_vs_N` | 0.975 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t2_scaling_fits.csv` | CI [0.9401, 1.0063], R2 0.9928 |
-| `beta_enumeration_vs_N` | 1.0 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t2_scaling_fits.csv` | CI [1.0000, 1.0000], R2 1.0000 |
 | `beta_durr_hoyer_vs_N_over_M` | 0.5101 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t2_scaling_fits.csv` | CI [0.4971, 0.5293], R2 0.9951 |
 | `beta_random_order_vs_N_over_M` | 1.0008 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t2_scaling_fits.csv` | CI [0.9838, 1.0222], R2 0.9978 |
-| `beta_enumeration_vs_N_over_M` | 1.0154 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t2_scaling_fits.csv` | CI [0.9655, 1.0746], R2 0.9835 |
 | `dh_cost_over_sqrtN_min` | 0.902 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/per_instance.csv` |  |
 | `dh_cost_over_sqrtN_max` | 2.666 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/per_instance.csv` |  |
 | `largest_N_mean_cost_durr_hoyer` | 1750.1 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/per_instance.csv` | mean over the 3 seeds with the largest N |

@@ -200,51 +200,6 @@ def plot_counts(
     return figure
 
 
-def plot_network(
-    instance,
-    interdicted: np.ndarray | None = None,
-    positions: dict | None = None,
-    title: str | None = None,
-    path: Path | str | None = None,
-) -> plt.Figure:
-    from matplotlib.patches import FancyArrowPatch
-
-    if positions is None:
-        positions = layered_positions(instance)
-    interdicted = np.zeros(instance.m, dtype=bool) if interdicted is None else np.asarray(interdicted, dtype=bool)
-    figure, axis = plt.subplots(figsize=(6.2, 3.0))
-    top = instance.capacity.max()
-    for index, ((i, j), capacity) in enumerate(zip(instance.arcs.tolist(), instance.capacity.tolist())):
-        start, end = positions[i], positions[j]
-        removed = interdicted[index]
-        arrow = FancyArrowPatch(
-            start, end, arrowstyle="-|>", mutation_scale=8, shrinkA=9, shrinkB=9,
-            color=PALETTE[7] if removed else "#8a8a85", lw=0.6 + 1.6 * capacity / top,
-            linestyle="--" if removed else "-", zorder=1,
-        )
-        axis.add_patch(arrow)
-        middle = (0.62 * start[0] + 0.38 * end[0], 0.62 * start[1] + 0.38 * end[1])
-        axis.text(
-            *middle, str(capacity), fontsize=6.5, ha="center", va="center", zorder=3,
-            color=PALETTE[7] if removed else "#3d3d3a",
-            bbox={"boxstyle": "round,pad=0.12", "fc": "white", "ec": "none", "alpha": 0.9},
-        )
-    for node, (px, py) in positions.items():
-        special = node in (instance.s, instance.t)
-        axis.scatter(px, py, s=170 if special else 110, color=PALETTE[0] if special else "white", edgecolors=PALETTE[0], zorder=2, linewidths=1.2)
-        label = "s" if node == instance.s else ("t" if node == instance.t else str(node))
-        axis.text(px, py, label, fontsize=7, ha="center", va="center", color="white" if special else "#1f1f1d", zorder=4)
-    axis.set_axis_off()
-    axis.set_aspect("equal")
-    axis.margins(0.06)
-    if title:
-        axis.set_title(title)
-    figure.tight_layout()
-    if path is not None:
-        figure.savefig(path, bbox_inches="tight")
-    return figure
-
-
 def layered_positions(instance, end_gap: float = 1.0) -> dict:
     width = instance.generator_params.get("width")
     layers = instance.generator_params.get("layers")
