@@ -52,12 +52,12 @@ Não editar à mão: reexecutar o notebook. Todo número citado no artigo sai de
 | `milp_nstar_layered_0.5` | 4098 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | reached_largest=True |
 | `milp_nstar_layered_0.75` | 4098 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | reached_largest=True |
 | `f1_instance` | layered-n11-m24-B2-s0 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/instances/layered-n11-m24-B2-s0.json` | F0=19, F*=4, N=301, M=1 |
-| `t0_feasible_below_sqrt` | 13/15 | `paper/tables/t0_feasible_vs_hypercube.csv` |  |
-| `t0_above_sqrt_cases` | m=12: 67 > 64; m=12: 138 > 64 | `paper/tables/t0_feasible_vs_hypercube.csv` |  |
-| `t0_min_m_all_below` | 15 | `paper/tables/t0_feasible_vs_hypercube.csv` | every instance with at least this m has fewer feasible plans than sqrt(2^m) |
-| `t0_max_feasible_m25` | 374 | `paper/tables/t0_feasible_vs_hypercube.csv` | sqrt(2^m) = 5793 |
-| `t0_non_degenerate` | 15/15 | `paper/tables/t0_feasible_vs_hypercube.csv` |  |
-| `t0_largest_m` | m=25, feasible=49, sqrt=5793 | `paper/tables/t0_feasible_vs_hypercube.csv` |  |
+| `t0_feasible_below_sqrt` | 13/15 | `paper/tables_en/t0_feasible_vs_hypercube.csv` |  |
+| `t0_above_sqrt_cases` | m=12: 67 > 64; m=12: 138 > 64 | `paper/tables_en/t0_feasible_vs_hypercube.csv` |  |
+| `t0_min_m_all_below` | 15 | `paper/tables_en/t0_feasible_vs_hypercube.csv` | every instance with at least this m has fewer feasible plans than sqrt(2^m) |
+| `t0_max_feasible_m25` | 374 | `paper/tables_en/t0_feasible_vs_hypercube.csv` | sqrt(2^m) = 5793 |
+| `t0_non_degenerate` | 15/15 | `paper/tables_en/t0_feasible_vs_hypercube.csv` |  |
+| `t0_largest_m` | m=25, feasible=49, sqrt=5793 | `paper/tables_en/t0_feasible_vs_hypercube.csv` |  |
 | `e2_m_range` | 3-14 | `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1/resources.csv` |  |
 | `e2_arith_qubits_range` | 18-46 | `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1/resources.csv` |  |
 | `e2_arith_2q_logical_range` | 690-4202 | `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1/resources.csv` |  |
