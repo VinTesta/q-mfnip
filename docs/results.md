@@ -6,6 +6,7 @@ Do not edit by hand: re-run the notebook. Every number cited in the paper comes 
 
 - **E1:** `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200`
 - **E2:** `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1`
+- **E2 (extension, deviation 8.4):** `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1`
 - **E3:** `outputs/2026-11-06_09-51-19__grover_ideal-grover_fake_fez-grover_ibm__random__n3-3__runs4096`
 - **MILP (random):** `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1`
 - **MILP (layered):** `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1`
@@ -64,6 +65,18 @@ Do not edit by hand: re-run the notebook. Every number cited in the paper comes 
 | `e2_arith_2q_fake_range` | 2055-14296 | `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1/resources.csv` |  |
 | `e2_dicke_2q_logical_range` | 8-174 | `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1/resources.csv` |  |
 | `e2_x_alpha_beats_enumeration` | 7/9 | `outputs/2026-11-06_09-52-56__dicke-truth_table-arithmetic__random__n3-7__runs1/t3_analytic.csv` |  |
+| `e2x_control_rows_identical` | 54/54 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/control.json` | 9 instances of E2 recounted |
+| `e2x_instances` | 25 (layered: 10, random: 15) | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` |  |
+| `e2x_m_range` | 3-70 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` |  |
+| `e2x_arith_qubit_formula` | 2m + n - 1 + 2s holds on all instances | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` | s = sum register = floor(log2 sum of capacities) + 1; every arc is active (none enters s or leaves t) |
+| `e2x_arith_qubits_range` | 18-184 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` |  |
+| `e2x_arith_2q_logical_range` | 690-33292 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` |  |
+| `e2x_dicke_k1_formula` | 4m - 4 holds on all instances | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` | 14 instances with k = 1 |
+| `e2x_fake_fez_largest_m` | 44 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` | arithmetic oracles with more than 156 qubits are not transpiled; transpiled/logical two-qubit gates 2.98-3.75 |
+| `e2x_growth_arithmetic_oracle` | 1.242 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/growth_fits.csv` | two-qubit gates ~ m^beta, CI [1.210, 1.286], R2 0.991, m 3-70, 25 instances |
+| `e2x_growth_dicke_preparation_k1` | 1.103 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/growth_fits.csv` | two-qubit gates ~ m^beta, CI [1.048, 1.154], R2 0.997, m 3-70, 14 instances |
+| `e2x_growth_dicke_preparation_k2` | 1.093 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/growth_fits.csv` | two-qubit gates ~ m^beta, CI [1.061, 1.155], R2 0.999, m 7-70, 8 instances |
+| `e2x_growth_truth_table_oracle` | 2.816 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/growth_fits.csv` | two-qubit gates ~ m^beta, CI [2.428, 3.141], R2 0.962, m 3-40, 15 instances |
 | `e3_ideal simulator_interface_j0_frequency` | 0.2534 | `outputs/2026-11-06_09-51-19__grover_ideal-grover_fake_fez-grover_ibm__random__n3-3__runs4096/amplification.csv` | theory 0.2500, p=3.12e-01 |
 | `e3_noisy simulator (FakeFez)_interface_j0_frequency` | 0.2405 | `outputs/2026-11-06_09-51-19__grover_ideal-grover_fake_fez-grover_ibm__random__n3-3__runs4096/amplification.csv` | theory 0.2500, p=9.23e-01 |
 | `e3_IBM hardware_interface_j0_frequency` | 0.2227 | `outputs/2026-11-06_09-51-19__grover_ideal-grover_fake_fez-grover_ibm__random__n3-3__runs4096/amplification.csv` | theory 0.2500, p=1.00e+00 |

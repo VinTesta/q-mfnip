@@ -1,0 +1,50 @@
+{
+  "experiment_id": "2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1",
+  "naming": {
+    "family": "random-layered",
+    "size_label": "n3-27",
+    "repetitions": 1
+  },
+  "status": "completed",
+  "scenario": {
+    "family": "random",
+    "sizes": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      12,
+      16,
+      20,
+      24,
+      32,
+      40
+    ],
+    "budget_fractions": [
+      0.5
+    ],
+    "seeds": [
+      0
+    ],
+    "params": {
+      "arc_factor": 2.0,
+      "cost_range": [
+        1,
+        1
+      ]
+    },
+    "budgets": [
+      1,
+      2
+    ],
+    "skip_degenerate": true
+  },
+  "e1_source": "2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200",
+  "e1_seed": 0,
+  "backend": "fake_fez",
+  "seed": 0,
+  "protocol": "docs/protocol.md, deviation 8.4"
+}
