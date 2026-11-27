@@ -52,12 +52,12 @@ Do not edit by hand: re-run the notebook. Every number cited in the paper comes 
 | `e1_success_within_0.3Q` | pooled 0.9997, lowest instance 0.995 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/runs/durr_hoyer__layered__n6-27__runs200.csv` | success = optimum measured with cost <= fraction * Q; defined after E1 |
 | `milp_time_max_ms_e1` | 23.9 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t1_instances.csv` |  |
 | `enumeration_time_max_s_e1` | 568.2 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/t1_instances.csv` |  |
-| `milp_nstar_random_0.25` | 320 | `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1/frontier.json` | reached_largest=False |
-| `milp_nstar_random_0.5` | 2560 | `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1/frontier.json` | reached_largest=False |
-| `milp_nstar_random_0.75` | 2560 | `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1/frontier.json` | reached_largest=False |
-| `milp_nstar_layered_0.25` | 2306 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | reached_largest=False |
-| `milp_nstar_layered_0.5` | 4098 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | reached_largest=True |
-| `milp_nstar_layered_0.75` | 4098 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | reached_largest=True |
+| `milp_nstar_random_0.25` | 320 | `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1/frontier.json` | 960 arcs; first size with a failure: 640; reached_largest=False |
+| `milp_nstar_random_0.5` | 2560 | `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1/frontier.json` | 7680 arcs; first size with a failure: 5120; reached_largest=False |
+| `milp_nstar_random_0.75` | 2560 | `outputs/2026-11-02_19-08-14__milp__random__n10-5120__runs1/frontier.json` | 7680 arcs; first size with a failure: 5120; reached_largest=False |
+| `milp_nstar_layered_0.25` | 2306 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | 6864 arcs; first size with a failure: 4098; reached_largest=False |
+| `milp_nstar_layered_0.5` | 4098 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | 12224 arcs; first size with a failure: none; reached_largest=True |
+| `milp_nstar_layered_0.75` | 4098 | `outputs/2026-11-02_19-14-18__milp__layered__n18-4098__runs1/frontier.json` | 12224 arcs; first size with a failure: none; reached_largest=True |
 | `f1_instance` | layered-n11-m24-B2-s0 | `outputs/2026-11-06_09-39-40__durr_hoyer-random_order-enumeration__layered__n6-27__runs200/instances/layered-n11-m24-B2-s0.json` | F0=19, F*=4, N=301, M=1 |
 | `t0_feasible_below_sqrt` | 13/15 | `paper/tables_en/t0_feasible_vs_hypercube.csv` |  |
 | `t0_above_sqrt_cases` | m=12: 67 > 64; m=12: 138 > 64 | `paper/tables_en/t0_feasible_vs_hypercube.csv` |  |
@@ -78,6 +78,7 @@ Do not edit by hand: re-run the notebook. Every number cited in the paper comes 
 | `e2x_arith_qubits_range` | 18-184 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` |  |
 | `e2x_arith_2q_logical_range` | 690-33292 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` |  |
 | `e2x_dicke_k1_formula` | 4m - 4 holds on all instances | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` | 14 instances with k = 1 |
+| `e2x_dicke_2q_largest` | 2292 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` | m = 70, k = 4 |
 | `e2x_fake_fez_largest_m` | 44 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/resources.csv` | arithmetic oracles with more than 156 qubits are not transpiled; transpiled/logical two-qubit gates 2.98-3.75 |
 | `e2x_growth_arithmetic_oracle` | 1.242 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/growth_fits.csv` | two-qubit gates ~ m^beta, CI [1.210, 1.286], R2 0.991, m 3-70, 25 instances |
 | `e2x_growth_dicke_preparation_k1` | 1.103 | `outputs/2026-11-26_21-17-06__dicke-truth_table-arithmetic__random-layered__n3-27__runs1/growth_fits.csv` | two-qubit gates ~ m^beta, CI [1.048, 1.154], R2 0.997, m 3-70, 14 instances |
