@@ -211,10 +211,23 @@ def layered_positions(instance, end_gap: float = 1.0) -> dict:
     return positions
 
 
-def network_label_positions(instance, positions: dict, label_pos: float = 0.25) -> list[tuple[float, float]]:
-    points = []
+def network_label_fractions(
+    instance, positions: dict, label_pos: float = 0.3, steep_label_pos: float = 0.2, steep_rise: float = 2.0
+) -> list[float]:
+    fractions = []
     for i, j in instance.arcs.tolist():
-        fraction = 0.5 if i == instance.s or j == instance.t else label_pos
+        if i == instance.s or j == instance.t:
+            fractions.append(0.5)
+        elif abs(positions[j][1] - positions[i][1]) >= steep_rise:
+            fractions.append(steep_label_pos)
+        else:
+            fractions.append(label_pos)
+    return fractions
+
+
+def network_label_positions(instance, positions: dict, **fractions) -> list[tuple[float, float]]:
+    points = []
+    for (i, j), fraction in zip(instance.arcs.tolist(), network_label_fractions(instance, positions, **fractions)):
         (x0, y0), (x1, y1) = positions[i], positions[j]
         points.append((x0 + fraction * (x1 - x0), y0 + fraction * (y1 - y0)))
     return points
@@ -226,8 +239,9 @@ def write_network_tikz(
     path: Path | str | None = None,
     positions: dict | None = None,
     x_scale: float = 2.4,
-    y_scale: float = 1.3,
-    label_pos: float = 0.25,
+    y_scale: float = 1.9,
+    label_pos: float = 0.3,
+    steep_label_pos: float = 0.2,
 ) -> str:
     if positions is None:
         positions = layered_positions(instance, end_gap=0.65)
@@ -240,18 +254,21 @@ def write_network_tikz(
         "  vertex/.style={circle, draw=black, line width=0.4pt, fill=white, inner sep=0pt, minimum size=4.4mm},",
         "  arc/.style={draw=black, line width=0.45pt, -{Stealth[length=1.6mm, width=1.1mm]}},",
         "  removed/.style={arc, draw=qaccent, line width=0.8pt, dash pattern=on 3pt off 1.5pt},",
-        "  capacity/.style={fill=white, inner sep=1pt},",
+        "  capacity/.style={fill=white, inner sep=0.6pt, font=\\scriptsize},",
         "]",
     ]
     for node in sorted(positions):
         x, y = positions[node]
         lines.append(f"\\node[vertex] ({names[node]}) at ({x * x_scale:.3f},{y * y_scale:.3f}) {{{texts[node]}}};")
-    arcs = list(zip(instance.arcs.tolist(), instance.capacity.tolist(), interdicted.tolist()))
-    for (i, j), _, removed in arcs:
-        lines.append(f"\\draw[{'removed' if removed else 'arc'}] ({names[i]}) -- ({names[j]});")
-    for (x, y), (_, capacity, removed) in zip(network_label_positions(instance, positions, label_pos), arcs):
+    fractions = network_label_fractions(instance, positions, label_pos=label_pos, steep_label_pos=steep_label_pos)
+    for (i, j), capacity, removed, fraction in zip(
+        instance.arcs.tolist(), instance.capacity.tolist(), interdicted.tolist(), fractions
+    ):
         style = "capacity, text=qaccent" if removed else "capacity"
-        lines.append(f"\\node[{style}] at ({x * x_scale:.3f},{y * y_scale:.3f}) {{{capacity}}};")
+        lines.append(
+            f"\\draw[{'removed' if removed else 'arc'}] ({names[i]}) -- "
+            f"node[{style}, pos={fraction:g}] {{{capacity}}} ({names[j]});"
+        )
     lines.append("\\end{tikzpicture}")
     text = "\n".join(lines) + "\n"
     if path is not None:
