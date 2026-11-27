@@ -94,7 +94,7 @@ Each experiment folder contains `manifest.json` (configuration, solvers, instanc
 
 ## Paper
 
-`paper/main_en.tex` uses the IEEEtran class. It can be built, for example, with `tectonic -X compile paper/main_en.tex` or with `latexmk -pdf main_en.tex` inside `paper/`.
+`paper/main_en.tex`, "Maximum Flow Interdiction in Logistics Networks with Grover-Based Quantum Minimum Search", uses the IEEEtran class. It can be built, for example, with `tectonic -X compile paper/main_en.tex` or with `latexmk -pdf main_en.tex` inside `paper/`.
 
 ## License
 
