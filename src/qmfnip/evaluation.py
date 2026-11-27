@@ -188,3 +188,25 @@ def fit_scaling_exponent(
             }
         )
     return pd.DataFrame(rows)
+
+
+def wilson_interval(successes: int, trials: int, confidence: float = 0.95) -> tuple[float, float]:
+    if trials <= 0 or not 0 <= successes <= trials:
+        raise ValueError(f"Invalid counts: {successes} successes in {trials} trials")
+    z = math.sqrt(2) * _inverse_erf(confidence)
+    proportion = successes / trials
+    denominator = 1 + z**2 / trials
+    center = (proportion + z**2 / (2 * trials)) / denominator
+    half = z * math.sqrt(proportion * (1 - proportion) / trials + z**2 / (4 * trials**2)) / denominator
+    return max(0.0, center - half), min(1.0, center + half)
+
+
+def _inverse_erf(value: float) -> float:
+    from scipy.special import erfinv
+
+    return float(erfinv(value))
+
+
+def total_variation_distance(first: dict[str, float], second: dict[str, float]) -> float:
+    states = set(first) | set(second)
+    return 0.5 * sum(abs(first.get(state, 0.0) - second.get(state, 0.0)) for state in states)

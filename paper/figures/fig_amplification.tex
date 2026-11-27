@@ -1,0 +1,60 @@
+\begin{tikzpicture}[font=\footnotesize]
+\pgfplotsset{
+  amplification/.style={
+    width=0.48\linewidth,
+    height=4.6cm,
+    xmin=-0.4, xmax=3.4,
+    ymin=0, ymax=1.05,
+    xtick={0,1,2,3},
+    ytick={0,0.25,0.5,0.75,1},
+    tick pos=left,
+    tick align=outside,
+    major tick length=2.5pt,
+    xlabel={Grover iterations $j$},
+    label style={font=\footnotesize},
+    tick label style={font=\footnotesize},
+    title style={font=\footnotesize, yshift=-1ex},
+    axis line style={line width=0.4pt},
+    every tick/.style={black, line width=0.4pt},
+    table/col sep=comma,
+    error bars/error bar style={line width=0.4pt},
+    error bars/error mark options={rotate=90, mark size=1.2pt, line width=0.4pt},
+  },
+  theory/.style={black, line width=0.6pt, dashed, mark=x, mark size=2pt, mark options={solid}},
+  ideal/.style={only marks, mark=o, mark size=1.5pt, mark options={qgray, line width=0.5pt}},
+  noisy/.style={only marks, mark=square, mark size=1.4pt, mark options={black, line width=0.5pt, fill=white}},
+  hardware/.style={only marks, mark=triangle*, mark size=1.9pt, mark options={qaccent, fill=qaccent, line width=0.5pt}},
+}
+\begin{axis}[
+  amplification,
+  name=interface,
+  title={interface: Dicke preparation over $\mathcal{F}_1$ ($N=4$)},
+  ylabel={Frequency of the optimum},
+  legend columns=5,
+  legend style={at={(1.08,1.2)}, anchor=south, draw=none, font=\footnotesize, column sep=4pt},
+]
+\addplot[qgray, line width=0.5pt, dotted, forget plot] coordinates {(-0.4,0.25) (3.4,0.25)};
+\addplot[theory] table[x=iterations, y=theory] {figures/data/amplification_interface.csv};
+\addlegendentry{theory}
+\addplot[ideal, error bars/.cd, y dir=both, y explicit] table[x expr=\thisrow{iterations}-0.15, y=ideal, y error plus=ideal_plus, y error minus=ideal_minus] {figures/data/amplification_interface.csv};
+\addlegendentry{ideal simulator}
+\addplot[noisy, error bars/.cd, y dir=both, y explicit] table[x expr=\thisrow{iterations}, y=fake_fez, y error plus=fake_fez_plus, y error minus=fake_fez_minus] {figures/data/amplification_interface.csv};
+\addlegendentry{\texttt{FakeFez}}
+\addplot[hardware, error bars/.cd, y dir=both, y explicit] table[x expr=\thisrow{iterations}+0.15, y=ibm, y error plus=ibm_plus, y error minus=ibm_minus] {figures/data/amplification_interface.csv};
+\addlegendentry{\texttt{ibm\_fez}}
+\addlegendimage{qgray, line width=0.5pt, dotted}
+\addlegendentry{$1/N$}
+\end{axis}
+\begin{axis}[
+  amplification,
+  at={(interface.east)}, anchor=west, xshift=0.6cm,
+  title={hypercube: $H^{\otimes 3}$ ($N=8$)},
+  yticklabels={},
+]
+\addplot[qgray, line width=0.5pt, dotted] coordinates {(-0.4,0.125) (3.4,0.125)};
+\addplot[theory] table[x=iterations, y=theory] {figures/data/amplification_hypercube.csv};
+\addplot[ideal, error bars/.cd, y dir=both, y explicit] table[x expr=\thisrow{iterations}-0.15, y=ideal, y error plus=ideal_plus, y error minus=ideal_minus] {figures/data/amplification_hypercube.csv};
+\addplot[noisy, error bars/.cd, y dir=both, y explicit] table[x expr=\thisrow{iterations}, y=fake_fez, y error plus=fake_fez_plus, y error minus=fake_fez_minus] {figures/data/amplification_hypercube.csv};
+\addplot[hardware, error bars/.cd, y dir=both, y explicit] table[x expr=\thisrow{iterations}+0.15, y=ibm, y error plus=ibm_plus, y error minus=ibm_minus] {figures/data/amplification_hypercube.csv};
+\end{axis}
+\end{tikzpicture}

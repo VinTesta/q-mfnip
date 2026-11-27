@@ -20,7 +20,8 @@ def test_network_tikz_draws_every_arc_and_separates_labels(tmp_path):
     assert text.count("\\draw[arc]") + text.count("\\draw[removed]") == instance.m
     assert text.count("\\draw[removed]") == int(plan.sum())
     assert text.count("text=qaccent") == int(plan.sum())
-    points = np.array(network_label_positions(instance, layered_positions(instance, end_gap=0.65))) * (2.4, 1.3)
+    assert text.count("node[capacity") == instance.m
+    points = np.array(network_label_positions(instance, layered_positions(instance, end_gap=0.65))) * (2.4, 1.9)
     assert min(math.dist(a, b) for a, b in itertools.combinations(points, 2)) >= 0.3
 
 

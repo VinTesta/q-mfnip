@@ -1,0 +1,12 @@
+{
+  "rows": 54,
+  "instances": 9,
+  "differences": {
+    "logical_qubits": 0,
+    "physical_qubits": 0,
+    "two_qubit_gates": 0,
+    "total_gates": 0,
+    "circuit_depth": 0,
+    "two_qubit_depth": 0
+  }
+}

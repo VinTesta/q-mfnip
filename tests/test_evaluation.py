@@ -120,3 +120,25 @@ def test_fit_scaling_exponent_recovers_known_slope():
     fit = fit_scaling_exponent(frame, "size", "cost", n_boot=300).iloc[0]
     assert fit["ci_low"] <= 0.5 <= fit["ci_high"]
     assert abs(fit["beta"] - 0.5) < 0.02
+
+
+def test_wilson_interval_matches_scipy():
+    from scipy.stats import binomtest
+
+    from qmfnip.evaluation import wilson_interval
+
+    for successes, trials in ((3339, 4096), (0, 50), (50, 50), (7, 20)):
+        expected = binomtest(successes, trials).proportion_ci(0.95, method="wilson")
+        low, high = wilson_interval(successes, trials)
+        assert low == pytest.approx(expected.low, abs=1e-12)
+        assert high == pytest.approx(expected.high, abs=1e-12)
+    with pytest.raises(ValueError):
+        wilson_interval(5, 3)
+
+
+def test_total_variation_distance():
+    from qmfnip.evaluation import total_variation_distance
+
+    assert total_variation_distance({"0": 1.0}, {"0": 1.0}) == 0.0
+    assert total_variation_distance({"0": 1.0}, {"1": 1.0}) == 1.0
+    assert total_variation_distance({"00": 0.5, "01": 0.5}, {"00": 0.25, "10": 0.75}) == pytest.approx(0.75)
