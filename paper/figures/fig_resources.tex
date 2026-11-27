@@ -1,0 +1,34 @@
+\begin{tikzpicture}[font=\footnotesize]
+\begin{loglogaxis}[
+  width=\linewidth,
+  height=5.3cm,
+  xmin=2.5, xmax=110,
+  ymin=3, ymax=1.5e5,
+  xtick={3,10,30,70},
+  xticklabels={3,10,30,70},
+  ytickten={1,...,5},
+  xminorticks=false,
+  yminorticks=false,
+  tick pos=left,
+  tick align=outside,
+  major tick length=2.5pt,
+  xlabel={Number of arcs $m$},
+  ylabel={Two-qubit gates (logical)},
+  label style={font=\footnotesize},
+  tick label style={font=\footnotesize},
+  axis line style={line width=0.4pt},
+  every tick/.style={black, line width=0.4pt},
+  table/col sep=comma,
+  unbounded coords=discard,
+  filter discard warning=false,
+]
+\addplot[qaccent, line width=0.6pt] table[x=m_arithmetic_oracle, y=arithmetic_oracle] {figures/data/resources_fits.csv}
+  node[pos=0.45, sloped, anchor=south, yshift=2pt, text=qaccent] {arithmetic oracle};
+\addplot[black, line width=0.6pt] table[x=m_truth_table_oracle, y=truth_table_oracle] {figures/data/resources_fits.csv}
+  node[pos=0.27, sloped, anchor=south, yshift=3pt] {truth table};
+\addplot[only marks, mark=*, mark size=1.2pt, mark options={qaccent, line width=0.5pt, fill=qaccent}] table[x=m, y=arithmetic] {figures/data/resources_points.csv};
+\addplot[only marks, mark=square, mark size=1.2pt, mark options={black, line width=0.5pt, fill=white}] table[x=m, y=truth_table] {figures/data/resources_points.csv};
+\addplot[only marks, mark=triangle, mark size=1.5pt, mark options={qgray, line width=0.5pt}] table[x=m, y=dicke] {figures/data/resources_points.csv}
+  node[pos=1, anchor=west, text=qgray, xshift=2pt] {$A_k$};
+\end{loglogaxis}
+\end{tikzpicture}

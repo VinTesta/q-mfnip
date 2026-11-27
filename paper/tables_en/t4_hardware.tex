@@ -1,17 +1,19 @@
 \begin{table*}[t]
 \centering
-\caption{Frequency of the optimal plan at the optimal number of Grover iterations $j$ for the E3 instance (4{,}096 shots per circuit), with circuit depth and two-qubit gates after transpilation and the one-sided binomial $p$-value against $1/N$.}\label{tab:hardware}
-\small
-\begin{tabular}{llrrrrrrr}
+\caption{The eight circuits of E3 on \texttt{ibm\_fez} (4{,}096 shots each): depth and two-qubit gates after transpilation, theoretical probability of the optimal plan, its frequency on \texttt{FakeFez} and on the processor (with 95\% Wilson interval), fraction of shots inside $\mathcal{F}_1$, frequency of the optimal plan among those shots (theoretical value in parentheses), and total variation distance (TVD) between the measured and the theoretical distributions. The pre-specified test of H2 uses the hardware frequencies at $j=1$ (interface) and $j=2$ (hypercube); everything else is exploratory.}\label{tab:hardware}
+\footnotesize
+\begin{tabular}{lrrrrrlrlr}
 \toprule
-Environment & Variant & $j$ & Depth & 2q gates & Theory & Frequency & $1/N$ & $p$ \\
+Variant & $j$ & Depth & 2q gates & Theory & \texttt{FakeFez} & Hardware [95\% CI] & In $\mathcal{F}_1$ & Post-selected & TVD \\
 \midrule
-ideal simulator & interface & 1 & -- & -- & 1.000 & 1.000 & 0.250 & $<10^{-300}$ \\
-ideal simulator & hypercube & 2 & -- & -- & 0.945 & 0.942 & 0.125 & $<10^{-300}$ \\
-noise model (\texttt{FakeFez}) & interface & 1 & 110 & 29 & 1.000 & 0.898 & 0.250 & $<10^{-300}$ \\
-noise model (\texttt{FakeFez}) & hypercube & 2 & 144 & 39 & 0.945 & 0.833 & 0.125 & $<10^{-300}$ \\
-hardware (\texttt{ibm\_fez}) & interface & 1 & 110 & 29 & 1.000 & 0.815 & 0.250 & $<10^{-300}$ \\
-hardware (\texttt{ibm\_fez}) & hypercube & 2 & 144 & 39 & 0.945 & 0.818 & 0.125 & $<10^{-300}$ \\
+interface & 0 & 18 & 4 & 0.250 & 0.240 & 0.223 [0.210, 0.236] & 0.983 & 0.226 (0.250) & 0.029 \\
+interface & 1 & 110 & 29 & 1.000 & 0.898 & 0.815 [0.803, 0.827] & 0.917 & 0.889 (1.000) & 0.185 \\
+interface & 2 & 201 & 54 & 0.250 & 0.230 & 0.215 [0.202, 0.227] & 0.908 & 0.236 (0.250) & 0.092 \\
+interface & 3 & 292 & 79 & 0.250 & 0.215 & 0.233 [0.220, 0.246] & 0.880 & 0.265 (0.250) & 0.120 \\
+hypercube & 0 & 4 & 0 & 0.125 & 0.129 & 0.124 [0.114, 0.134] & 0.495 & 0.250 (0.250) & 0.014 \\
+hypercube & 1 & 68 & 17 & 0.781 & 0.743 & 0.647 [0.632, 0.662] & 0.813 & 0.796 (0.893) & 0.134 \\
+hypercube & 2 & 144 & 39 & 0.945 & 0.833 & 0.818 [0.806, 0.829] & 0.907 & 0.901 (0.976) & 0.128 \\
+hypercube & 3 & 210 & 57 & 0.330 & 0.303 & 0.273 [0.260, 0.287] & 0.605 & 0.451 (0.535) & 0.071 \\
 \bottomrule
 \end{tabular}
 \end{table*}

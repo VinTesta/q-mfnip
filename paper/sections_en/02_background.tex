@@ -21,13 +21,13 @@ is the value of the maximum $s$--$t$ flow after the interdiction. Evaluating $F(
 
 \subsection{The maximum flow network interdiction problem}\label{sec:bg-mfnip}
 
-\paragraph{Bilevel formulation} Each arc has an interdiction cost $c_a\in\mathbb{Z}_{>0}$, and the interdictor has a budget $B$. The MFNIP is a Stackelberg game in which the interdictor, the leader, first removes a set of arcs within the budget, and the network user, the follower, then sends a maximum flow through the remaining network~\cite{wood1993,smith2020}. The optimal value of the problem is
+\paragraph{Bilevel formulation} Each arc has an interdiction cost $c_a\in\mathbb{Z}_{>0}$, and the interdictor has a budget $B$. The optimal value of the MFNIP~\cite{wood1993,smith2020} is
 \begin{equation}\label{eq:mfnip}
   \Fstar \;=\; \min_{x\in\{0,1\}^{m}} \bigl\{\, F(x) \;:\; c^{\top}x\le B \,\bigr\},
 \end{equation}
 where the inner problem $F(x)$ of \eqref{eq:F} is the follower's linear program.
 
-\paragraph{Single-level reformulation} Because the follower's problem is a linear program, it can be replaced by its dual, the minimum cut problem, and the two minimizations merge into one. Wood~\cite{wood1993} linearized the product of the cut and interdiction variables and obtained a MILP with three groups of binary variables. The variable $\alpha_i$ gives the side of node $i$ in the cut ($\alpha_i=0$ on the source side and $\alpha_i=1$ on the sink side), $\gamma_a$ indicates that arc $a$ crosses the cut and is \emph{not} interdicted, so that its capacity counts toward the cut, and $x_a$ indicates that arc $a$ is interdicted. The model is
+\paragraph{Single-level reformulation} The MILP of Wood~\cite{wood1993} minimizes, jointly over cuts and interdiction plans, the capacity of the arcs that cross the cut and are not interdicted. It has three groups of binary variables. The variable $\alpha_i$ gives the side of node $i$ in the cut ($\alpha_i=0$ on the source side and $\alpha_i=1$ on the sink side), $\gamma_a$ indicates that arc $a$ crosses the cut and is \emph{not} interdicted, so that its capacity counts toward the cut, and $x_a$ indicates that arc $a$ is interdicted. The model is
 \begin{equation}\label{eq:milp}
 \begin{aligned}
   \min_{\alpha,\gamma,x}\quad & \sum_{a\in A} u_a\gamma_a \\
